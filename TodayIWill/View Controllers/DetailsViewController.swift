@@ -32,6 +32,8 @@ class DetailsViewController: UIViewController {
     var tasks: [String]?
     var isExistingTodo: Bool?
     
+    private var currentEdit = -1;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tasksTableView.estimatedRowHeight = 44.0
@@ -40,6 +42,9 @@ class DetailsViewController: UIViewController {
 //        tap.cancelsTouchesInView = false
 //        view.addGestureRecognizer(tap)
 //        tap.delegate = self
+        
+//        let myTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: (#selector(DetailsViewController.tapGesture(_:))))
+//        self.view.addGestureRecognizer(myTap)
         
         titleTextView.text = todo?.name ?? "Title"
         titleTextView.textColor = (todo == nil) ? UIColor.lightGray : UIColor.black
@@ -51,6 +56,7 @@ class DetailsViewController: UIViewController {
     
 
         tasksTableView.sizeToFit()
+        tasksTableView.separatorColor = UIColor.black
         
         
         if todo == nil || todo?.tasks == nil {
@@ -59,6 +65,20 @@ class DetailsViewController: UIViewController {
             self.tasks = todo?.tasks
         }
     }
+    
+    
+//    @objc func tapGesture(_ sender : UITapGestureRecognizer){
+//        //
+//        let touch = sender.location(in: tasksTableView)
+//        if let indexPath = tasksTableView.indexPathForRow(at: touch)  {
+//            tableView(tasksTableView, didSelectRowAt: indexPath)
+////            currentEdit = indexPath.row
+////            print ( " Num: \( indexPath.row) " )
+////            print ( " Value: \(tasks![indexPath.row])")
+//
+//        }
+//    }
+
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -122,6 +142,7 @@ extension DetailsViewController : UITableViewDataSource {
         
         let task = self.tasks![indexPath.row]
         cell.taskTextView.text = task
+        cell.taskTextView.tag = indexPath.row
         cell.layer.cornerRadius = 8
         cell.layer.masksToBounds = true
         
@@ -203,6 +224,16 @@ extension DetailsViewController: TasksTableViewCellDelegate {
         let indexPath = IndexPath(row: expandingIndexRow, section: 0)
         
         tasksTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+    }
+    
+    func updateTask(at index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        guard let cell = tasksTableView.cellForRow(at: indexPath) as? TasksTableViewCell else {
+            fatalError("Unable to find cell")
+        }
+        
+        tasks![index] = cell.taskTextView.text
+        
     }
 }
 

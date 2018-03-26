@@ -10,6 +10,7 @@ import UIKit
 
 protocol TasksTableViewCellDelegate {
     func updated(height: CGFloat)
+    func updateTask(at index: Int)
 }
 
 class TasksTableViewCell: UITableViewCell {
@@ -43,5 +44,10 @@ extension TasksTableViewCell: UITextViewDelegate {
             return false
         }
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let tag = textView.tag
+        delegate?.updateTask(at: tag)
     }
 }

@@ -11,8 +11,6 @@
 		0802E49E2052DC4200E1B7EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0802E49C2052DC4200E1B7EC /* Main.storyboard */; };
 		0802E4A02052DC4200E1B7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0802E49F2052DC4200E1B7EC /* Assets.xcassets */; };
 		0802E4A32052DC4200E1B7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0802E4A12052DC4200E1B7EC /* LaunchScreen.storyboard */; };
-		0802E4AE2052DC4200E1B7EC /* TodayIWillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E4AD2052DC4200E1B7EC /* TodayIWillTests.swift */; };
-		0802E4B92052DC4200E1B7EC /* TodayIWillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E4B82052DC4200E1B7EC /* TodayIWillUITests.swift */; };
 		0803AE702061DB3B00B83B02 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */; };
 		0803AE7720656EC700B83B02 /* TodosDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE7520656EC700B83B02 /* TodosDataModel.xcdatamodeld */; };
 		0803AE7B2065818A00B83B02 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE7A2065818A00B83B02 /* CoreDataStack.swift */; };
@@ -47,11 +45,7 @@
 		0802E4A22052DC4200E1B7EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0802E4A42052DC4200E1B7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0802E4A92052DC4200E1B7EC /* TodayIWillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayIWillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0802E4AD2052DC4200E1B7EC /* TodayIWillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayIWillTests.swift; sourceTree = "<group>"; };
-		0802E4AF2052DC4200E1B7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0802E4B42052DC4200E1B7EC /* TodayIWillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayIWillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0802E4B82052DC4200E1B7EC /* TodayIWillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayIWillUITests.swift; sourceTree = "<group>"; };
-		0802E4BA2052DC4300E1B7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
 		0803AE7620656EC700B83B02 /* TodosDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodosDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0803AE7A2065818A00B83B02 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -90,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				0802E4972052DC4200E1B7EC /* TodayIWill */,
-				0802E4AC2052DC4200E1B7EC /* TodayIWillTests */,
-				0802E4B72052DC4200E1B7EC /* TodayIWillUITests */,
 				0802E4962052DC4200E1B7EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,36 +101,16 @@
 		0802E4972052DC4200E1B7EC /* TodayIWill */ = {
 			isa = PBXGroup;
 			children = (
-				089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */,
 				0802E49C2052DC4200E1B7EC /* Main.storyboard */,
-				0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */,
-				0803AE7E206585FB00B83B02 /* DetailsViewController.swift */,
-				08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */,
-				08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */,
+				089C246B2069AC9600DB6BFE /* View Controllers */,
+				089C246C2069ACAA00DB6BFE /* Table Cells */,
+				089C246D2069ACB500DB6BFE /* Extensions */,
 				0803AE792065810F00B83B02 /* Supporting Files */,
 				0803AE78206580E300B83B02 /* CoreData */,
 				0802E49F2052DC4200E1B7EC /* Assets.xcassets */,
 				0802E4A42052DC4200E1B7EC /* Info.plist */,
 			);
 			path = TodayIWill;
-			sourceTree = "<group>";
-		};
-		0802E4AC2052DC4200E1B7EC /* TodayIWillTests */ = {
-			isa = PBXGroup;
-			children = (
-				0802E4AD2052DC4200E1B7EC /* TodayIWillTests.swift */,
-				0802E4AF2052DC4200E1B7EC /* Info.plist */,
-			);
-			path = TodayIWillTests;
-			sourceTree = "<group>";
-		};
-		0802E4B72052DC4200E1B7EC /* TodayIWillUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0802E4B82052DC4200E1B7EC /* TodayIWillUITests.swift */,
-				0802E4BA2052DC4300E1B7EC /* Info.plist */,
-			);
-			path = TodayIWillUITests;
 			sourceTree = "<group>";
 		};
 		0803AE78206580E300B83B02 /* CoreData */ = {
@@ -157,6 +129,32 @@
 				0802E4982052DC4200E1B7EC /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		089C246B2069AC9600DB6BFE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */,
+				0803AE7E206585FB00B83B02 /* DetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		089C246C2069ACAA00DB6BFE /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */,
+				08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		089C246D2069ACB500DB6BFE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +306,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0802E4AE2052DC4200E1B7EC /* TodayIWillTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0802E4B92052DC4200E1B7EC /* TodayIWillUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
