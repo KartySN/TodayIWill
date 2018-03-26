@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0802E4992052DC4200E1B7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E4982052DC4200E1B7EC /* AppDelegate.swift */; };
-		0802E49B2052DC4200E1B7EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E49A2052DC4200E1B7EC /* ViewController.swift */; };
 		0802E49E2052DC4200E1B7EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0802E49C2052DC4200E1B7EC /* Main.storyboard */; };
 		0802E4A02052DC4200E1B7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0802E49F2052DC4200E1B7EC /* Assets.xcassets */; };
 		0802E4A32052DC4200E1B7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0802E4A12052DC4200E1B7EC /* LaunchScreen.storyboard */; };
 		0802E4AE2052DC4200E1B7EC /* TodayIWillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E4AD2052DC4200E1B7EC /* TodayIWillTests.swift */; };
 		0802E4B92052DC4200E1B7EC /* TodayIWillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802E4B82052DC4200E1B7EC /* TodayIWillUITests.swift */; };
+		0803AE702061DB3B00B83B02 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */; };
+		0803AE7720656EC700B83B02 /* TodosDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE7520656EC700B83B02 /* TodosDataModel.xcdatamodeld */; };
+		0803AE7B2065818A00B83B02 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE7A2065818A00B83B02 /* CoreDataStack.swift */; };
+		0803AE7F206585FB00B83B02 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AE7E206585FB00B83B02 /* DetailsViewController.swift */; };
+		089C246A20673ACD00DB6BFE /* UITextView+Expanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */; };
+		08E19EAD2065947300BCE6E8 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */; };
+		08E19EAF2066DC3400BCE6E8 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* Begin PBXFileReference section */
 		0802E4952052DC4200E1B7EC /* TodayIWill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayIWill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0802E4982052DC4200E1B7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0802E49A2052DC4200E1B7EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0802E49D2052DC4200E1B7EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0802E49F2052DC4200E1B7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0802E4A22052DC4200E1B7EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		0802E4B42052DC4200E1B7EC /* TodayIWillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayIWillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0802E4B82052DC4200E1B7EC /* TodayIWillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayIWillUITests.swift; sourceTree = "<group>"; };
 		0802E4BA2052DC4300E1B7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
+		0803AE7620656EC700B83B02 /* TodosDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodosDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0803AE7A2065818A00B83B02 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0803AE7E206585FB00B83B02 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Expanding.swift"; sourceTree = "<group>"; };
+		08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +109,15 @@
 		0802E4972052DC4200E1B7EC /* TodayIWill */ = {
 			isa = PBXGroup;
 			children = (
-				0802E4982052DC4200E1B7EC /* AppDelegate.swift */,
-				0802E49A2052DC4200E1B7EC /* ViewController.swift */,
+				089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */,
 				0802E49C2052DC4200E1B7EC /* Main.storyboard */,
+				0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */,
+				0803AE7E206585FB00B83B02 /* DetailsViewController.swift */,
+				08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */,
+				08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */,
+				0803AE792065810F00B83B02 /* Supporting Files */,
+				0803AE78206580E300B83B02 /* CoreData */,
 				0802E49F2052DC4200E1B7EC /* Assets.xcassets */,
-				0802E4A12052DC4200E1B7EC /* LaunchScreen.storyboard */,
 				0802E4A42052DC4200E1B7EC /* Info.plist */,
 			);
 			path = TodayIWill;
@@ -123,6 +139,24 @@
 				0802E4BA2052DC4300E1B7EC /* Info.plist */,
 			);
 			path = TodayIWillUITests;
+			sourceTree = "<group>";
+		};
+		0803AE78206580E300B83B02 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0803AE7520656EC700B83B02 /* TodosDataModel.xcdatamodeld */,
+				0803AE7A2065818A00B83B02 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0803AE792065810F00B83B02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0802E4A12052DC4200E1B7EC /* LaunchScreen.storyboard */,
+				0802E4982052DC4200E1B7EC /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0802E49B2052DC4200E1B7EC /* ViewController.swift in Sources */,
+				0803AE7B2065818A00B83B02 /* CoreDataStack.swift in Sources */,
+				0803AE702061DB3B00B83B02 /* TodoTableViewController.swift in Sources */,
 				0802E4992052DC4200E1B7EC /* AppDelegate.swift in Sources */,
+				08E19EAD2065947300BCE6E8 /* TodoTableViewCell.swift in Sources */,
+				089C246A20673ACD00DB6BFE /* UITextView+Expanding.swift in Sources */,
+				0803AE7720656EC700B83B02 /* TodosDataModel.xcdatamodeld in Sources */,
+				0803AE7F206585FB00B83B02 /* DetailsViewController.swift in Sources */,
+				08E19EAF2066DC3400BCE6E8 /* TasksTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL95LCN3ZS;
 				INFOPLIST_FILE = TodayIWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartysn.TodayIWill;
@@ -441,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL95LCN3ZS;
 				INFOPLIST_FILE = TodayIWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartysn.TodayIWill;
@@ -552,6 +594,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0803AE7520656EC700B83B02 /* TodosDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0803AE7620656EC700B83B02 /* TodosDataModel.xcdatamodel */,
+			);
+			currentVersion = 0803AE7620656EC700B83B02 /* TodosDataModel.xcdatamodel */;
+			path = TodosDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0802E48D2052DC4200E1B7EC /* Project object */;
 }
