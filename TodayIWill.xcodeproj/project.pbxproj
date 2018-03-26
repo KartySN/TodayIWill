@@ -109,12 +109,10 @@
 		0802E4972052DC4200E1B7EC /* TodayIWill */ = {
 			isa = PBXGroup;
 			children = (
-				089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */,
 				0802E49C2052DC4200E1B7EC /* Main.storyboard */,
-				0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */,
-				0803AE7E206585FB00B83B02 /* DetailsViewController.swift */,
-				08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */,
-				08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */,
+				089C246B2069AC9600DB6BFE /* View Controllers */,
+				089C246C2069ACAA00DB6BFE /* Table Cells */,
+				089C246D2069ACB500DB6BFE /* Extensions */,
 				0803AE792065810F00B83B02 /* Supporting Files */,
 				0803AE78206580E300B83B02 /* CoreData */,
 				0802E49F2052DC4200E1B7EC /* Assets.xcassets */,
@@ -157,6 +155,32 @@
 				0802E4982052DC4200E1B7EC /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		089C246B2069AC9600DB6BFE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0803AE6F2061DB3B00B83B02 /* TodoTableViewController.swift */,
+				0803AE7E206585FB00B83B02 /* DetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		089C246C2069ACAA00DB6BFE /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				08E19EAC2065947300BCE6E8 /* TodoTableViewCell.swift */,
+				08E19EAE2066DC3400BCE6E8 /* TasksTableViewCell.swift */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		089C246D2069ACB500DB6BFE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				089C246920673ACD00DB6BFE /* UITextView+Expanding.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
