@@ -92,7 +92,6 @@ class TodoTableViewController: UITableViewController {
             }
         }
         
-//        action.image = #imageLiteral(resourceName: "Trash")
         action.title = "Delete"
         action.backgroundColor = .red
         
