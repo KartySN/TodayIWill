@@ -85,14 +85,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56M-t5-sKK">
-                                <rect key="frame" x="16" y="149" width="345" height="61"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56M-t5-sKK">
+                                <rect key="frame" x="14" y="149" width="347" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fs-Fh-wPw">
-                                <rect key="frame" x="16" y="218" width="343" height="511"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6fs-Fh-wPw">
+                                <rect key="frame" x="16" y="204" width="343" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="77" id="CTF-DE-4ft" customClass="TasksTableViewCell" customModule="TodayIWill" customModuleProvider="target">
@@ -134,15 +134,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="56M-t5-sKK" firstAttribute="leading" secondItem="3EH-pG-upI" secondAttribute="leading" constant="15" id="0ZE-D6-a7V"/>
-                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="centerX" secondItem="3EH-pG-upI" secondAttribute="centerX" id="ANM-t6-Avw"/>
-                            <constraint firstItem="3EH-pG-upI" firstAttribute="bottom" secondItem="6fs-Fh-wPw" secondAttribute="bottom" id="Axy-EY-W48"/>
-                            <constraint firstItem="3EH-pG-upI" firstAttribute="trailing" secondItem="56M-t5-sKK" secondAttribute="trailing" constant="15" id="O3B-aH-KNF"/>
-                            <constraint firstItem="3EH-pG-upI" firstAttribute="trailing" secondItem="6fs-Fh-wPw" secondAttribute="trailing" constant="16" id="Zde-2x-xqB"/>
-                            <constraint firstItem="56M-t5-sKK" firstAttribute="top" secondItem="3EH-pG-upI" secondAttribute="top" constant="9" id="av9-ya-NK7"/>
-                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="top" secondItem="3EH-pG-upI" secondAttribute="top" constant="78" id="hSK-Bx-8S2"/>
-                            <constraint firstItem="56M-t5-sKK" firstAttribute="centerX" secondItem="3EH-pG-upI" secondAttribute="centerX" id="sQK-3B-yLg"/>
-                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="leading" secondItem="3EH-pG-upI" secondAttribute="leading" constant="16" id="w7h-sb-p5v"/>
+                            <constraint firstItem="56M-t5-sKK" firstAttribute="centerX" secondItem="bXP-p2-lTr" secondAttribute="centerX" id="6ze-3C-KHn"/>
+                            <constraint firstItem="3EH-pG-upI" firstAttribute="trailing" secondItem="56M-t5-sKK" secondAttribute="trailing" constant="14" id="GBQ-Ho-Ock"/>
+                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="leading" secondItem="3EH-pG-upI" secondAttribute="leading" constant="16" id="HcW-wA-Phu"/>
+                            <constraint firstItem="56M-t5-sKK" firstAttribute="top" secondItem="3EH-pG-upI" secondAttribute="top" constant="9" id="NTq-77-aif"/>
+                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="centerX" secondItem="bXP-p2-lTr" secondAttribute="centerX" id="cQR-UF-4Db"/>
+                            <constraint firstItem="3EH-pG-upI" firstAttribute="bottom" secondItem="6fs-Fh-wPw" secondAttribute="bottom" id="jiE-gs-wvL"/>
+                            <constraint firstItem="6fs-Fh-wPw" firstAttribute="top" relation="lessThanOrEqual" secondItem="56M-t5-sKK" secondAttribute="bottom" constant="8" symbolic="YES" id="knm-jR-rO1"/>
+                            <constraint firstItem="3EH-pG-upI" firstAttribute="trailing" secondItem="6fs-Fh-wPw" secondAttribute="trailing" constant="16" id="mjD-mY-LHY"/>
+                            <constraint firstItem="56M-t5-sKK" firstAttribute="leading" secondItem="3EH-pG-upI" secondAttribute="leading" constant="14" id="o1x-CN-wPg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3EH-pG-upI"/>
                     </view>
@@ -178,8 +178,11 @@
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="eS5-Ys-BzD">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.29207984339342169" green="0.61517613564204909" blue="0.66666668653488159" alpha="0.597931338028169" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bwh-ue-lzM">

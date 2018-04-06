@@ -15,17 +15,17 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var tasksTableView: UITableView!
     
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+    @IBAction func saveButton(_ sender: UIButton) {
         saveTodo()
     }
-    
-    @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
-        addTask()
+ 
+    @IBAction func addTaskButton(_ sender: UIButton) {
+       addTask()
     }
 
-    
     var expandingCellHeight: CGFloat = 50
     var expandingIndexRow = 0
+    let cellSpacingHeight: CGFloat = 20
     
     var managedContext: NSManagedObjectContext!
     var todo: Todo?
@@ -36,29 +36,9 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tasksTableView.estimatedRowHeight = 44.0
+        setUpTitleTextView()
+        setUpTasksTableView()
     
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//        tap.delegate = self
-        
-//        let myTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: (#selector(DetailsViewController.tapGesture(_:))))
-//        self.view.addGestureRecognizer(myTap)
-        
-        titleTextView.text = todo?.name ?? "Title"
-        titleTextView.textColor = (todo == nil) ? UIColor.lightGray : UIColor.black
-        self.titleTextView.delegate = self
-        titleTextView.becomeFirstResponder()
-        titleTextView.selectedTextRange = titleTextView.textRange(from: titleTextView.beginningOfDocument, to: titleTextView.beginningOfDocument)
-        titleTextView.translatesAutoresizingMaskIntoConstraints = true
-        titleTextView.isScrollEnabled = false
-    
-
-        tasksTableView.sizeToFit()
-        tasksTableView.separatorColor = UIColor.black
-        
-        
         if todo == nil || todo?.tasks == nil {
             self.tasks = []
         }else{
@@ -66,18 +46,24 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    private func setUpTitleTextView(){
+        titleTextView.text = todo?.name ?? "Title"
+        titleTextView.textColor = (todo == nil) ? UIColor.lightGray : UIColor.black
+        titleTextView.delegate = self
+        titleTextView.becomeFirstResponder()
+        titleTextView.selectedTextRange = titleTextView.textRange(from: titleTextView.beginningOfDocument, to: titleTextView.beginningOfDocument)
+        titleTextView.translatesAutoresizingMaskIntoConstraints = false
+        titleTextView.isScrollEnabled = false
+        titleTextView.sizeToFit()
+        titleTextView.adjustsFontForContentSizeCategory = true
+    }
     
-//    @objc func tapGesture(_ sender : UITapGestureRecognizer){
-//        //
-//        let touch = sender.location(in: tasksTableView)
-//        if let indexPath = tasksTableView.indexPathForRow(at: touch)  {
-//            tableView(tasksTableView, didSelectRowAt: indexPath)
-////            currentEdit = indexPath.row
-////            print ( " Num: \( indexPath.row) " )
-////            print ( " Value: \(tasks![indexPath.row])")
-//
-//        }
-//    }
+    private func setUpTasksTableView(){
+        tasksTableView.sizeToFit()
+        tasksTableView.estimatedRowHeight = 44.0
+        tasksTableView.separatorColor = UIColor.black
+        tasksTableView.delegate = self
+    }
 
     
     
@@ -86,13 +72,16 @@ class DetailsViewController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
     func saveTodo(){
         guard let name = titleTextView.text, !name.isEmpty else {
             return
+        }
+        
+        if(currentEdit >= 0){
+            self.tasks?[currentEdit] = ((tasksTableView.cellForRow(at: IndexPath(row: currentEdit, section: 0)) as? TasksTableViewCell)?.taskTextView.text)!
         }
         
         if let todo = self.todo {
@@ -142,7 +131,10 @@ extension DetailsViewController : UITableViewDataSource {
         
         let task = self.tasks![indexPath.row]
         cell.taskTextView.text = task
+        cell.taskTextView.translatesAutoresizingMaskIntoConstraints = false
         cell.taskTextView.tag = indexPath.row
+        cell.sizeToFit()
+        cell.translatesAutoresizingMaskIntoConstraints = false
         cell.layer.cornerRadius = 8
         cell.layer.masksToBounds = true
         
@@ -152,11 +144,13 @@ extension DetailsViewController : UITableViewDataSource {
 
 extension DetailsViewController: UITableViewDelegate {
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == expandingIndexRow {
             return expandingCellHeight
         } else {
-            return 50
+            return tableView.rowHeight
         }
     }
     
@@ -169,15 +163,13 @@ extension DetailsViewController: UITableViewDelegate {
             completion(true)
             
             self.tasks?.remove(at: indexPath.row)
-            
-            do {
-                try self.managedContext.save()
-                tableView.reloadData()
-                completion(true)
-            } catch {
-                print("delete failed: \(error)")
-                completion(false)
+            if(self.currentEdit == indexPath.row){
+                self.currentEdit == -1
             }
+            self.saveTodo()
+            tableView.reloadData()
+            completion(true)
+            
         }
         action.title = "Delete"
         action.backgroundColor = .red
@@ -185,33 +177,23 @@ extension DetailsViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [action])
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Mark Done") { (action, view, completion) in
-            completion(true)
-            
-            self.tasks?.remove(at: indexPath.row)
-            
-            do {
-                try self.managedContext.save()
-                tableView.reloadData()
-                completion(true)
-            } catch {
-                print("mark done failed: \(error)")
-                completion(false)
-            }
-        }
-        action.title = "Mark Done"
-        action.backgroundColor = UIColor.green
-        
-        return UISwipeActionsConfiguration(actions: [action])
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
 }
 
 extension DetailsViewController: TasksTableViewCellDelegate {
     
-    func updated(height: CGFloat) {
+    func updated(height: CGFloat, index: Int) {
         expandingCellHeight = height
+        expandingIndexRow = index
         
         // Disabling animations gives us our desired behaviour
         UIView.setAnimationsEnabled(false)
@@ -222,6 +204,7 @@ extension DetailsViewController: TasksTableViewCellDelegate {
         UIView.setAnimationsEnabled(true)
         
         let indexPath = IndexPath(row: expandingIndexRow, section: 0)
+        currentEdit = indexPath.row
         
         tasksTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
     }
@@ -240,15 +223,11 @@ extension DetailsViewController: TasksTableViewCellDelegate {
 extension DetailsViewController : UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        
-        let fixedWidth = textView.frame.size.width
-        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude))
-        var newFrame = textView.frame
-        
-        let baseHeight: CGFloat = 50
-        /* Our new height should never be smaller than our base height, so use the larger of the two */
-        let height: CGFloat = newSize.height > baseHeight ? newSize.height : baseHeight
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: height)
+
+          var textFrame: CGRect  = textView.frame;
+          textFrame.size.height = textView.contentSize.height;
+          textView.frame = textFrame;
+          self.view.layoutIfNeeded()
         
     }
     
@@ -287,18 +266,6 @@ extension DetailsViewController : UITextViewDelegate {
     }
 }
 
-extension DetailsViewController : UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if(touch.view?.isDescendant(of: tasksTableView))!{
-            print("false")
-            return false
-        }
-        print("true")
-        return true
-    }
-    
-    
-}
 
 fileprivate extension DetailsViewController {
     
