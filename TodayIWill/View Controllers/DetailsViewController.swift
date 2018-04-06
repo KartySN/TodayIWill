@@ -11,17 +11,25 @@ import CoreData
 
 class DetailsViewController: UIViewController {
    
-    
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var tasksTableView: UITableView!
     
-    @IBAction func saveButton(_ sender: UIButton) {
-        saveTodo()
-    }
- 
-    @IBAction func addTaskButton(_ sender: UIButton) {
-       addTask()
-    }
+    
+    let saveButton : UIButton = {
+        let button = UIButton()
+        button.titleLabel?.text = "Save"
+        button.backgroundColor = .blue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let addTaskButton : UIButton = {
+        let button = UIButton()
+        button.titleLabel?.text = "Add Task"
+        button.backgroundColor = UIColor.lightGray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     var expandingCellHeight: CGFloat = 50
     var expandingIndexRow = 0
@@ -36,15 +44,26 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpTitleTextView()
         setUpTasksTableView()
-    
+     
         if todo == nil || todo?.tasks == nil {
             self.tasks = []
         }else{
             self.tasks = todo?.tasks
         }
     }
+    
+    override func loadView() {
+     
+//        view.addSubview(saveButton)
+//        view.addSubview(addTaskButton)
+//
+//        saveButton.topAnchor.constraint(equalTo: tasksTableView.bottomAnchor)
+//        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+    }
+
     
     private func setUpTitleTextView(){
         titleTextView.text = todo?.name ?? "Title"
