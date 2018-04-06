@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TasksTableViewCellDelegate {
-    func updated(height: CGFloat)
+    func updated(height: CGFloat, index: Int)
     func updateTask(at index: Int)
 }
 
@@ -35,7 +35,7 @@ extension TasksTableViewCell: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         let height = textView.newHeight(withBaseHeight: 50)
-        delegate?.updated(height: height)
+        delegate?.updated(height: height, index: textView.tag)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
